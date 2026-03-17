@@ -20,7 +20,7 @@
 
     <!-- MAIN CONTENT: CONTACT PAGE -->
     <main>
-        <!-- Flash messages (if any) -->
+        <!-- Flash messages -->
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 {% for category, message in messages %}
@@ -29,39 +29,47 @@
             {% endif %}
         {% endwith %}
 
+        <!-- Contact strip - ICONS REMOVED -->
+        <section>
+            <p>
+                Johannesburg, South Africa |
+                <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
+                079 963 3750 / 067 893 7973 |
+                <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
+            </p>
+        </section>
+
         <!-- Page Title -->
         <h1>Contact Me</h1>
 
         <!-- Two-column layout -->
         <table width="100%" cellpadding="10" cellspacing="0" border="0">
             <tr>
-                <!-- Left column: Contact Information -->
+                <!-- Left column: Contact Information - ALL ICONS REMOVED -->
                 <td width="50%" valign="top">
                     <h2>Get in Touch</h2>
                     
                     <p>I'm always open to discussing new opportunities, collaborations, or just having a tech chat. Feel free to reach out through any of the channels below:</p>
                     
-                    <h3>📍 Address</h3>
+                    <h3>Address</h3>
                     <p>Johannesburg, South Africa</p>
                     
-                    <h3>📧 Email</h3>
+                    <h3>Email</h3>
                     <p><a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a></p>
                     
-                    <h3>📞 Phone</h3>
-                    <p>079 963 3750 <br> 067 893 7973</p>
+                    <h3>Phone</h3>
+                    <p>079 963 3750</p>
+                    <p>067 893 7973</p>
                     
-                    <h3>🔗 Professional Profiles</h3>
+                    <h3>Professional Profiles</h3>
                     <p>
                         LinkedIn: <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
                     </p>
                     
-                    <h3>📱 Social</h3>
-                    <p>GitHub: <em>(available on request)</em></p>
-                    
                     <hr>
                     
                     <h3>Response Time</h3>
-                    <p>I typically respond within 24-48 hours during weekdays. For urgent matters, please include "URGENT" in your email subject line.</p>
+                    <p>I typically respond within 24-48 hours during weekdays.</p>
                 </td>
                 
                 <!-- Right column: Contact Form -->
@@ -72,25 +80,28 @@
                         <!-- Name field -->
                         <label for="name"><strong>Your Name *</strong></label><br>
                         <input type="text" id="name" name="name" required 
+                               value="{{ request.form.name if request.form.name else '' }}"
                                style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                         <br>
                         
                         <!-- Email field -->
                         <label for="email"><strong>Your Email *</strong></label><br>
                         <input type="email" id="email" name="email" required 
+                               value="{{ request.form.email if request.form.email else '' }}"
                                style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                         <br>
                         
                         <!-- Subject field -->
                         <label for="subject"><strong>Subject *</strong></label><br>
                         <input type="text" id="subject" name="subject" required 
+                               value="{{ request.form.subject if request.form.subject else '' }}"
                                style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
                         <br>
                         
                         <!-- Message field -->
                         <label for="message"><strong>Message *</strong></label><br>
                         <textarea id="message" name="message" rows="6" required 
-                                  style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;"></textarea>
+                                  style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">{{ request.form.message if request.form.message else '' }}</textarea>
                         <br>
                         
                         <!-- Submit button -->
@@ -98,27 +109,24 @@
                             Send Message
                         </button>
                         
-                        <!-- Reset button -->
                         <button type="reset" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-left: 10px;">
                             Clear Form
                         </button>
                     </form>
-                    
-                    <p><small>* Required fields</small></p>
                 </td>
             </tr>
         </table>
         
-        <!-- Additional Information Section -->
+        <!-- Additional Information Section - ICON REMOVED -->
         <section>
             <hr>
             <h2>Looking for Collaboration?</h2>
             <p>If you're interested in working together on a project, have a job opportunity, or need a freelancer for web development or IT support, I'd love to hear from you. Let's connect and discuss how I can help bring your ideas to life.</p>
         </section>
         
-        <!-- Quick reference table (working hours) -->
+        <!-- Quick reference table (working hours) - ICON REMOVED -->
         <section>
-            <h3>⏰ Best Times to Reach Me</h3>
+            <h3>Best Times to Reach Me</h3>
             <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
                 <tr style="background-color: #f2f2f2;">
                     <th>Day</th>
