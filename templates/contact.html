@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+    <!-- HEADER / NAVIGATION -->
     <header>
         <nav>
             <span><strong>Mpho Dynal Mabena</strong></span> |
@@ -15,31 +17,145 @@
             <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
+
+    <!-- MAIN CONTENT: CONTACT PAGE -->
     <main>
+        <!-- Flash messages (if any) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="form-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Contact strip -->
         <section>
             <p>
-                Johannesburg, South Africa |
-                <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
-                079 963 3750 / 067 893 7973 |
-                <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
+                📍 Johannesburg, South Africa |
+                📧 <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
+                📞 079 963 3750 / 067 893 7973 |
+                🔗 <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
             </p>
         </section>
+
+        <!-- Page Title -->
         <h1>Contact Me</h1>
-        <form action="{{ url_for('submit_contact') }}" method="post" id="contact-form">
-            <label for="name">Your Name *</label><br>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Your Email *</label><br>
-            <input type="email" id="email" name="email" required><br><br>
-            <label for="subject">Subject *</label><br>
-            <input type="text" id="subject" name="subject" required><br><br>
-            <label for="message">Message *</label><br>
-            <textarea id="message" name="message" rows="6" required></textarea><br><br>
-            <button type="submit">Send Message</button>
-        </form>
+
+        <!-- Two-column layout -->
+        <table width="100%" cellpadding="10" cellspacing="0" border="0">
+            <tr>
+                <!-- Left column: Contact Information -->
+                <td width="50%" valign="top">
+                    <h2>Get in Touch</h2>
+                    
+                    <p>I'm always open to discussing new opportunities, collaborations, or just having a tech chat. Feel free to reach out through any of the channels below:</p>
+                    
+                    <h3>📍 Address</h3>
+                    <p>Johannesburg, South Africa</p>
+                    
+                    <h3>📧 Email</h3>
+                    <p><a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a></p>
+                    
+                    <h3>📞 Phone</h3>
+                    <p>079 963 3750 <br> 067 893 7973</p>
+                    
+                    <h3>🔗 Professional Profiles</h3>
+                    <p>
+                        LinkedIn: <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
+                    </p>
+                    
+                    <h3>📱 Social</h3>
+                    <p>GitHub: <em>(available on request)</em></p>
+                    
+                    <hr>
+                    
+                    <h3>Response Time</h3>
+                    <p>I typically respond within 24-48 hours during weekdays. For urgent matters, please include "URGENT" in your email subject line.</p>
+                </td>
+                
+                <!-- Right column: Contact Form -->
+                <td width="50%" valign="top">
+                    <h2>Send a Message</h2>
+                    
+                    <form action="{{ url_for('submit_contact') }}" method="post" id="contact-form">
+                        <!-- Name field -->
+                        <label for="name"><strong>Your Name *</strong></label><br>
+                        <input type="text" id="name" name="name" required 
+                               style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <br>
+                        
+                        <!-- Email field -->
+                        <label for="email"><strong>Your Email *</strong></label><br>
+                        <input type="email" id="email" name="email" required 
+                               style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <br>
+                        
+                        <!-- Subject field -->
+                        <label for="subject"><strong>Subject *</strong></label><br>
+                        <input type="text" id="subject" name="subject" required 
+                               style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px;">
+                        <br>
+                        
+                        <!-- Message field -->
+                        <label for="message"><strong>Message *</strong></label><br>
+                        <textarea id="message" name="message" rows="6" required 
+                                  style="width: 90%; padding: 8px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; font-family: inherit;"></textarea>
+                        <br>
+                        
+                        <!-- Submit button -->
+                        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">
+                            Send Message
+                        </button>
+                        
+                        <!-- Reset button -->
+                        <button type="reset" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-left: 10px;">
+                            Clear Form
+                        </button>
+                    </form>
+                    
+                    <p><small>* Required fields</small></p>
+                </td>
+            </tr>
+        </table>
+        
+        <!-- Additional Information Section -->
+        <section>
+            <hr>
+            <h2>Looking for Collaboration?</h2>
+            <p>If you're interested in working together on a project, have a job opportunity, or need a freelancer for web development or IT support, I'd love to hear from you. Let's connect and discuss how I can help bring your ideas to life.</p>
+        </section>
+        
+        <!-- Quick reference table (working hours) -->
+        <section>
+            <h3>⏰ Best Times to Reach Me</h3>
+            <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+                <tr style="background-color: #f2f2f2;">
+                    <th>Day</th>
+                    <th>Availability</th>
+                </tr>
+                <tr>
+                    <td>Monday - Friday</td>
+                    <td>9:00 AM - 6:00 PM (SAST, UTC+2)</td>
+                </tr>
+                <tr>
+                    <td>Saturday</td>
+                    <td>10:00 AM - 2:00 PM (SAST)</td>
+                </tr>
+                <tr>
+                    <td>Sunday</td>
+                    <td>Limited availability (email preferred)</td>
+                </tr>
+            </table>
+        </section>
     </main>
+
+    <!-- FOOTER -->
     <footer>
         <p>© {{ current_year() }} Mpho Dynal Mabena. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>

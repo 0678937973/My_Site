@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+    <!-- HEADER / NAVIGATION -->
     <header>
         <nav>
             <span><strong>Mpho Dynal Mabena</strong></span> |
@@ -15,28 +17,142 @@
             <a href="{{ url_for('contact') }}">Contact</a>
         </nav>
     </header>
+
+    <!-- MAIN CONTENT: ABOUT PAGE -->
     <main>
+        <!-- Flash messages (if any) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="form-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Contact strip -->
         <section>
             <p>
-                Johannesburg, South Africa |
-                <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
-                079 963 3750 / 067 893 7973 |
-                <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
+                📍 Johannesburg, South Africa |
+                📧 <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
+                📞 079 963 3750 / 067 893 7973 |
+                🔗 <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
             </p>
         </section>
+
+        <!-- Page Title -->
         <h1>About Me</h1>
+
+        <!-- Who I Am Section -->
         <section>
             <h2>Who I Am</h2>
-            <p>I'm Mpho Dynal Mabena, an IT professional based in Johannesburg, South Africa. My journey in technology began with a curiosity about how systems work together — from the code that powers web applications to the servers that host them. I believe in building solutions that are not only functional but also secure, maintainable, and user-friendly.</p>
+            <p>
+                I'm Mpho Dynal Mabena, an IT professional based in Johannesburg, South Africa. 
+                My journey in technology began with a curiosity about how systems work together 
+                — from the code that powers web applications to the servers that host them. 
+                I believe in building solutions that are not only functional but also secure, 
+                maintainable, and user-friendly.
+            </p>
         </section>
+
+        <!-- My Approach / Philosophy -->
         <section>
             <h2>My Approach</h2>
-            <p>I view technology as a tool to solve real-world problems. Whether I'm designing a database schema, troubleshooting a server issue, or developing a RESTful API, I focus on the bigger picture: how does this serve the end user? I'm drawn to full-stack development because it allows me to understand and contribute to every layer of an application — from the browser down to the operating system.</p>
+            <p>
+                I view technology as a tool to solve real-world problems. Whether I'm designing 
+                a database schema, troubleshooting a server issue, or developing a RESTful API, 
+                I focus on the bigger picture: how does this serve the end user? 
+                I'm drawn to full-stack development because it allows me to understand and 
+                contribute to every layer of an application — from the browser down to the 
+                operating system.
+            </p>
+            <p>
+                In my practical experience, I've learned that the best solutions come from 
+                clear documentation, thorough testing, and a willingness to dive into logs 
+                to find the root cause of an issue. I enjoy the detective work that comes 
+                with troubleshooting, and I take pride in writing code and configurations 
+                that others can easily understand and maintain.
+            </p>
+        </section>
+
+        <!-- Technical Journey & Interests -->
+        <section>
+            <h2>Technical Journey & Interests</h2>
+            <p>
+                My formal education at Vaal University of Technology gave me a strong 
+                foundation in IT principles, but my real growth has come from hands-on 
+                projects. I'm particularly passionate about:
+            </p>
+            <ul>
+                <li>
+                    <strong>Linux System Administration:</strong> Managing CentOS servers, 
+                    hardening security, and understanding the intricacies of user permissions 
+                    and firewall configurations.
+                </li>
+                <li>
+                    <strong>Web Development:</strong> Building responsive frontends with 
+                    HTML, CSS, and JavaScript, and creating robust backends with Python 
+                    (Flask) and Node.js.
+                </li>
+                <li>
+                    <strong>Database Design:</strong> Crafting efficient schemas in 
+                    MySQL/MariaDB and optimizing queries for performance.
+                </li>
+                <li>
+                    <strong>DevOps Practices:</strong> Deploying applications, monitoring 
+                    logs, and managing the development-to-production workflow.
+                </li>
+                <li>
+                    <strong>Security Hardening:</strong> Implementing firewall configurations, 
+                    user permissions, and security patches to protect applications and data.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Beyond the Code -->
+        <section>
+            <h2>Beyond the Code</h2>
+            <p>
+                When I'm not working on servers or writing code, I enjoy exploring new 
+                technologies, contributing to technical documentation, and collaborating 
+                with others to solve challenging problems. I'm a firm believer in continuous 
+                learning — which is why I've pursued certifications in AI and work readiness 
+                through the YES programme, even after completing my diploma.
+            </p>
+            <p>
+                I'm currently open to opportunities that allow me to apply my skills in 
+                full-stack development, IT infrastructure, or system administration, 
+                and I'm always excited to connect with like-minded professionals.
+            </p>
+        </section>
+
+        <!-- Quick Bio Highlights -->
+        <section>
+            <h2>At a Glance</h2>
+            <ul>
+                <li><strong>📍 Based in:</strong> Johannesburg, South Africa</li>
+                <li><strong>🎓 Education:</strong> Diploma in IT, Vaal University of Technology (2023)</li>
+                <li><strong>💻 Core stack:</strong> Python/Flask, JavaScript, Linux, MySQL/MariaDB</li>
+                <li><strong>🔧 Passion areas:</strong> Backend architecture, server security, performance tuning</li>
+                <li><strong>🌱 Currently exploring:</strong> Advanced React patterns, CI/CD pipelines, Cloud Computing</li>
+                <li><strong>📜 Certifications:</strong> YES AI Programme, YES Work Readiness (2025)</li>
+            </ul>
+        </section>
+
+        <!-- Personal Quote or Motto -->
+        <section style="background-color: #f0f7ff; padding: 2rem; border-radius: 8px; text-align: center; margin-top: 2rem;">
+            <blockquote style="font-size: 1.2rem; font-style: italic; color: #2c3e50;">
+                "The only way to do great work is to love what you do and never stop learning."
+            </blockquote>
+            <p style="margin-top: 1rem;">— Mpho Dynal Mabena</p>
         </section>
     </main>
+
+    <!-- FOOTER -->
     <footer>
         <p>© {{ current_year() }} Mpho Dynal Mabena. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
