@@ -5,6 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mpho Dynal Mabena · IT Professional</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles for skill bars */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .skill-category {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .skill-category h3 {
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .skill-item {
+            margin-bottom: 1.2rem;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2980b9);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 1s ease;
+        }
+        
+        .skill-percentage {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .beginner-tag {
+            background-color: #f39c12;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .intermediate-tag {
+            background-color: #27ae60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .advanced-tag {
+            background-color: #3498db;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 8px;
+            text-transform: uppercase;
+        }
+        
+        .note-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,9 +126,6 @@
             {% endif %}
         {% endwith %}
 
-        <!-- Contact strip - ICONS REMOVED -->
-        
-
         <!-- Professional Summary -->
         <section>
             <h1>Professional Summary</h1>
@@ -45,18 +139,358 @@
             </p>
         </section>
 
-        <!-- Technical Skills -->
+        <!-- Technical Skills with Visual Indicators - UPDATED PERCENTAGES -->
         <section>
             <h2>Technical Skills</h2>
-            <ul>
-                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React</li>
-                <li><strong>Backend:</strong> Python (Flask), Node.js, RESTful API Development</li>
-                <li><strong>Databases:</strong> SQL, MySQL, MariaDB, MS SQL Server</li>
-                <li><strong>Systems & Infrastructure:</strong> Linux (CentOS) Server Administration, Windows OS, System Configuration, Hardware Troubleshooting, Network Support</li>
-                <li><strong>DevOps & Deployment:</strong> Application Deployment, Development to Production Workflows, Log Analysis & Monitoring</li>
-                <li><strong>IT & Security:</strong> User Account Management, Access Control, Authentication Support, Website Security Hardening, Data Protection Principles</li>
-                <li><strong>Tools & Methodologies:</strong> Git, Log Monitoring & Alerting, Incident Management, Technical Documentation, Excel-based Reporting</li>
-            </ul>
+            
+            <div class="skills-container">
+                <!-- Frontend Skills -->
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML5 <span class="intermediate-tag">Intermediate</span></span>
+                            <span class="skill-percentage">70%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CSS3 <span class="intermediate-tag">Intermediate</span></span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>JavaScript <span class="intermediate-tag">Intermediate</span></span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>React <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">52%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 52%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python (Flask) <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Node.js <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>RESTful APIs <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    
+                    
+                    </div>
+                </div>
+                
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3>Databases</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MySQL <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">48%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MariaDB <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">48%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>MS SQL Server <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Systems & Infrastructure -->
+                <div class="skill-category">
+                    <h3>Systems & Infrastructure</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Linux (CentOS) <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">48%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Windows OS <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>System Configuration <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Hardware Troubleshooting <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Network Support <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">38%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 38%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps & Deployment -->
+                <div class="skill-category">
+                    <h3>DevOps & Deployment</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Application Deployment <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Dev to Prod Workflows <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Log Analysis <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">48%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Monitoring <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- IT & Security -->
+                <div class="skill-category">
+                    <h3>IT & Security</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>User Account Management <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">48%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 48%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Access Control <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">45%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Authentication Support <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">42%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 42%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Website Security Hardening <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">38%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 38%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Data Protection <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">42%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 42%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Methodologies -->
+                <div class="skill-category">
+                    <h3>Tools & Methodologies</h3>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Git & GitHub <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Log Monitoring & Alerting <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">42%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 42%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Incident Management <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">38%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 38%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Technical Documentation <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">50%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Excel-based Reporting <span class="beginner-tag">Beginner</span></span>
+                            <span class="skill-percentage">60%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skill Level Note -->
+            <div class="note-box">
+                <strong>📊 Skill Level Guide:</strong>
+                <span class="beginner-tag" style="margin-left: 10px;">Beginner</span> (35-65%) - Foundational knowledge, learning and growing
+                <span class="intermediate-tag" style="margin-left: 10px;">Intermediate</span> (66-85%) - Comfortable with independent work
+                <span class="advanced-tag" style="margin-left: 10px;">Advanced</span> (86%+) - Expert level
+                <p style="margin-top: 10px; margin-bottom: 0;"><strong>Note:</strong> HTML5 (70%), CSS3 (80%), and JavaScript (75%) at intermediate level. All other skills are at beginner level as I continue to learn and grow.</p>
+            </div>
         </section>
 
         <!-- Core Competencies -->
