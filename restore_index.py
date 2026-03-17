@@ -1,0 +1,143 @@
+# restore_index.py
+index_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mpho Dynal Mabena · IT Professional</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <!-- HEADER / NAVIGATION -->
+    <header>
+        <nav>
+            <span><strong>Mpho Dynal Mabena</strong></span> |
+            <a href="{{ url_for('home') }}">Home</a> |
+            <a href="{{ url_for('about') }}">About</a> |
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT: HOME PAGE -->
+    <main>
+        <!-- Flash messages (if any) -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="form-message {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Contact strip -->
+        <section>
+            <p>
+                📍 Johannesburg, South Africa |
+                📧 <a href="mailto:mabenampho64@gmail.com">mabenampho64@gmail.com</a> |
+                📞 079 963 3750 / 067 893 7973 |
+                🔗 <a href="https://www.linkedin.com/in/mabenampho54" target="_blank">linkedin.com/in/mabenampho54</a>
+            </p>
+        </section>
+
+        <!-- Professional Summary -->
+        <section>
+            <h1>Professional Summary</h1>
+            <p>
+                Detail-oriented Information Technology graduate with a Diploma in IT and hands-on experience in
+                full-stack development, IT infrastructure support, and system administration. Proven ability to develop and
+                deploy web applications using modern frameworks, manage Linux-based servers, and troubleshoot
+                complex technical issues. Strong foundation in database design, API development, and security best
+                practices. Committed to continuous learning and delivering high-quality results in collaborative technical
+                environments.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2>Technical Skills</h2>
+            <ul>
+                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, React</li>
+                <li><strong>Backend:</strong> Python (Flask), Node.js, RESTful API Development</li>
+                <li><strong>Databases:</strong> SQL, MySQL, MariaDB, MS SQL Server</li>
+                <li><strong>Systems & Infrastructure:</strong> Linux (CentOS) Server Administration, Windows OS, System Configuration, Hardware Troubleshooting, Network Support</li>
+                <li><strong>DevOps & Deployment:</strong> Application Deployment, Development to Production Workflows, Log Analysis & Monitoring</li>
+                <li><strong>IT & Security:</strong> User Account Management, Access Control, Authentication Support, Website Security Hardening, Data Protection Principles</li>
+                <li><strong>Tools & Methodologies:</strong> Git, Log Monitoring & Alerting, Incident Management, Technical Documentation, Excel-based Reporting</li>
+            </ul>
+        </section>
+
+        <!-- Core Competencies -->
+        <section>
+            <h2>Core Competencies</h2>
+            <p>
+                <strong>Full Stack Development</strong> | Application Deployment & Maintenance | Database Administration (MySQL/MariaDB) |
+                Server Management (Linux CentOS) | API Design & Implementation | Performance Monitoring & Troubleshooting |
+                Technical Documentation | Problem Solving & Critical Thinking
+            </p>
+        </section>
+
+        <!-- Professional Projects & Practical Experience -->
+        <section>
+            <h2>Professional Projects & Practical Experience</h2>
+
+            <article>
+                <h3>Full Stack Web Application (Flask) | Self-Directed Project</h3>
+                <p><em>Technologies: Python (Flask), JavaScript, HTML5, CSS3, MariaDB, Linux CentOS Server</em></p>
+                <ul>
+                    <li>Conceptualized and developed a full-stack web application, managing the entire project lifecycle from design to deployment.</li>
+                    <li>Designed and implemented a responsive frontend using HTML, CSS, and JavaScript.</li>
+                    <li>Built backend services using the Python Flask framework with RESTful API endpoints.</li>
+                    <li>Engineered the database layer using MariaDB including schema design and SQL query optimization.</li>
+                    <li>Deployed the application to a production environment on a Linux CentOS server.</li>
+                    <li>Troubleshot database configuration conflicts and connection issues.</li>
+                    <li>Performed log analysis to identify performance bottlenecks and resolve application errors.</li>
+                    <li>Implemented server security hardening including firewall configuration, user permissions, and security patches.</li>
+                    <li>Documented the build and deployment process including system configuration and troubleshooting procedures.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>IT Infrastructure Support | Practical Experience</h3>
+                <ul>
+                    <li>Provided Windows OS installation, BIOS configuration, and hardware troubleshooting support.</li>
+                    <li>Assisted with system administration tasks including user account management and access control.</li>
+                    <li>Participated in log monitoring, alert tracking, and incident management.</li>
+                    <li>Created technical documentation and Excel-based reports for system maintenance and performance tracking.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section>
+            <h2>Education</h2>
+            <p><strong>Diploma in Information Technology</strong> – Vaal University of Technology (Completed 2023)</p>
+
+            <h2>Certifications</h2>
+            <ul>
+                <li>Youth Employment Service (YES) – Digital Learning Certificate (AI Programme), 18 August 2025</li>
+                <li>Youth Employment Service (YES) – Digital Learning Certificate (Work Readiness Programme), 21 August 2025</li>
+            </ul>
+        </section>
+
+        <!-- References -->
+        <section>
+            <h2>References</h2>
+            <p>Available on Request</p>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© {{ current_year() }} Mpho Dynal Mabena. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>'''
+
+with open('templates/index.html', 'w', encoding='utf-8') as f:
+    f.write(index_content)
+
+print("index.html restored with complete content!")
